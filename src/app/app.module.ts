@@ -1,10 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { MdToolbarModule } from '@angular/material';
 import {MatListModule} from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatGridListModule} from '@angular/material';
+
+import {
+  MdButtonModule,
+  MdMenuModule,
+  MdToolbarModule,
+  MdIconModule,
+  MdCardModule
+} from '@angular/material';
+
 
 
 import 'hammerjs';
@@ -23,7 +31,11 @@ import { MenuComponent } from './menu/menu.component';
     MdToolbarModule,
     MatListModule,
     MatGridListModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+       MdButtonModule,
+    MdMenuModule,
+    MdIconModule,
+    MdCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
