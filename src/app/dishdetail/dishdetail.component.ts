@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 
-const DISH =  [{
+const DISH = {
   name: 'Uthappizza',
   image: '/assets/images/uthappizza.png',
   category: 'mains',
@@ -40,7 +40,8 @@ const DISH =  [{
       date: "2011-12-02T17:57:28.556094Z"
     }
   ]
-}];
+};
+
 
 @Component({
   selector: 'app-dishdetail',

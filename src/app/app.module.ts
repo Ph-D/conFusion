@@ -10,7 +10,8 @@ import {
   MdMenuModule,
   MdToolbarModule,
   MdIconModule,
-  MdCardModule
+  MdCardModule,
+  MdListModule,
 } from '@angular/material';
 
 
@@ -34,8 +35,9 @@ import { DishdetailComponent } from './dishdetail/dishdetail.component';
     MatListModule,
     MatGridListModule,
     FlexLayoutModule,
-       MdButtonModule,
+    MdButtonModule,
     MdMenuModule,
+    MdListModule,
     MdIconModule,
     MdCardModule
   ],
