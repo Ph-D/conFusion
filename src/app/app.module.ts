@@ -31,7 +31,7 @@ import { DishService } from './services/dish.service';
 import { PromotionService } from './services/promotion.service';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { LoginComponent } from './login/login.component';
-
+import { LeaderService } from './services/leader.service';
 
 @NgModule({
   declarations: [
@@ -62,7 +62,7 @@ import { LoginComponent } from './login/login.component';
     AppRoutingModule
     
   ],
-  providers: [ DishService, PromotionService ],
+  providers: [ DishService, PromotionService, LeaderService ],
   entryComponents: [
     LoginComponent
   ],
