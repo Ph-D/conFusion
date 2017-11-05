@@ -5,6 +5,8 @@ import {MatListModule} from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatGridListModule} from '@angular/material';
 import { MdDialogModule } from '@angular/material';
+import {MatSelectModule} from '@angular/material';
+
 
 import {MatCheckboxModule} from '@angular/material';
 
@@ -37,6 +39,7 @@ import {MdFormFieldModule} from '@angular/material';
 import {MdInputModule} from '@angular/material';
 
 import { FormsModule, ReactiveFormsModule, } from '@angular/forms';
+import {MatSlideToggleModule} from '@angular/material';
 
 
 @NgModule({
@@ -68,7 +71,9 @@ import { FormsModule, ReactiveFormsModule, } from '@angular/forms';
     MdListModule,
     MdIconModule,
     MdCardModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatSlideToggleModule,
+    MatSelectModule
     
   ],
   providers: [ DishService, PromotionService, LeaderService ],
