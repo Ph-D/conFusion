@@ -5,7 +5,8 @@ import {MatListModule} from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatGridListModule} from '@angular/material';
 import { MdDialogModule } from '@angular/material';
-import { FormsModule } from '@angular/forms'; 
+
+import {MatCheckboxModule} from '@angular/material';
 
 
 import {
@@ -32,6 +33,11 @@ import { PromotionService } from './services/promotion.service';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { LoginComponent } from './login/login.component';
 import { LeaderService } from './services/leader.service';
+import {MdFormFieldModule} from '@angular/material';
+import {MdInputModule} from '@angular/material';
+
+import { FormsModule, ReactiveFormsModule, } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -51,10 +57,13 @@ import { LeaderService } from './services/leader.service';
     MdToolbarModule,
     MatListModule,
     MatGridListModule,
+    MatCheckboxModule,
     FlexLayoutModule,
     MdDialogModule,
     MdButtonModule,
     FormsModule,
+    MdInputModule,
+    ReactiveFormsModule,
     MdMenuModule,
     MdListModule,
     MdIconModule,
