@@ -42,7 +42,7 @@ fxLayoutGap="10px">
   <form novalidate [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
       <p>
         <md-input-container class="half-width"
-         dividerColor="{{(feedbackForm.get('firstname').hasError('required') && feedbackForm.get('firstname').touched) ? 'warn' : 'primary'}}">
+         dividerColor="{{ formErrors.firstname ? 'warn' : 'primary'}}">
           <input mdInput formControlName="firstname" placeholder="First Name" type="text" required>
           <md-hint>
             <span [hidden]="!(feedbackForm.get('firstname').hasError('required') && feedbackForm.get('firstname').touched)">

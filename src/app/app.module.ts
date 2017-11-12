@@ -9,6 +9,7 @@ import {MatSelectModule} from '@angular/material';
 
 
 import {MatCheckboxModule} from '@angular/material';
+import {MatProgressSpinnerModule} from '@angular/material';
 
 
 import {
@@ -73,7 +74,8 @@ import {MatSlideToggleModule} from '@angular/material';
     MdCardModule,
     AppRoutingModule,
     MatSlideToggleModule,
-    MatSelectModule
+    MatSelectModule,
+    MatProgressSpinnerModule
     
   ],
   providers: [ DishService, PromotionService, LeaderService ],
