@@ -25,9 +25,25 @@ export class DishdetailComponent implements OnInit {
   prev: number;
   next: number;
 
-
+  autoTicks = false;
+  disabled = false;
+  invert = false;
+  max = 5;
+  min = 0;
+  showTicks = true;
+  step = 1;
+  thumbLabel = true;
+  value = 0;
+  vertical = false;
+  myVal = null;
   feedbackForm : FormGroup;
   commentForm : FormGroup;
+
+  updateMyVal(ev) {
+    console.info('update', ev);
+    this.myVal = ev.value; 
+  }
+
 
   formErrors = {
     'author' : '',
@@ -76,7 +92,17 @@ setPrevNext(dishId: number){
     this.location.back();
   }
 
+  
 
+  get tickInterval(): number | 'auto' {
+    return this.showTicks ? (this.autoTicks ? 'auto' : this._tickInterval) : 0;
+  }
+  set tickInterval(v) {
+    this._tickInterval = Number(5);
+  }
+  private _tickInterval = 1;
+
+  
 
     createForm(){
     this.commentForm = this.fb.group({

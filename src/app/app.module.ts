@@ -41,6 +41,7 @@ import {MdInputModule} from '@angular/material';
 
 import { FormsModule, ReactiveFormsModule, } from '@angular/forms';
 import {MatSlideToggleModule} from '@angular/material';
+import {MatSliderModule} from '@angular/material';
 
 
 @NgModule({
@@ -74,6 +75,7 @@ import {MatSlideToggleModule} from '@angular/material';
     MdCardModule,
     AppRoutingModule,
     MatSlideToggleModule,
+    MatSliderModule,
     MatSelectModule,
     MatProgressSpinnerModule
     

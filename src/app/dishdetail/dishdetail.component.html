@@ -58,7 +58,25 @@ fxLayoutGap="10px" fxLayoutGap.xs="0">
        </md-input-container>
      </p>
      <p>
- 
+
+        <h2 class="example-h2">Result of myval : {{myVal}}</h2>
+        
+
+
+      <md-slider
+      class="example-margin"
+      [disabled]="disabled"
+      [invert]="invert"
+      [max]="5"
+      [min]="min"
+      [step]="1"
+      [thumb-label]="thumbLabel"
+      [tick-interval]="tickInterval"
+      [value]="filtr.value"
+      [vertical]="vertical"
+      (change)=updateMyVal($event)
+       >
+  </md-slider>
      </p>
      <p>
        <md-input-container class="full-width">
