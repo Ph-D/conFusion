@@ -43,7 +43,6 @@ onSubmit(){
     agree: '',
     contacttype: 'None',
     message: ''
-  
   });
 }
 
