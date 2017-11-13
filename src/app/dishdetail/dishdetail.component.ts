@@ -26,7 +26,6 @@ export class DishdetailComponent implements OnInit {
   next: number;
 
   autoTicks = false;
-  disabled = false;
   invert = false;
   max = 5;
   min = 0;
@@ -38,8 +37,8 @@ export class DishdetailComponent implements OnInit {
 
   commentForm : FormGroup;
 
-  rating= 5;
-
+ 
+ 
 
   formErrors = {
     'author' : '',
@@ -53,8 +52,9 @@ export class DishdetailComponent implements OnInit {
       'maxlength': 'First Name cannot be more than 25 characters long.' 
     },
     'comment' : {
-      'required' : 'Tel. Number is required.',
-      'pattern' : 'Tel . Number must contain only numbers.'
+      'required' : 'Comment is required.',
+      'minlength':'Comment must bet at least 2 characters long.',
+      'maxlength': 'Comment cannot be more than 25 characters long.' 
     }
   };
 
@@ -99,7 +99,8 @@ export class DishdetailComponent implements OnInit {
     this.commentForm = this.fb.group({
       author: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(25)]],
       rating: 5,
-      comment: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(25)]]
+      comment: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(25)]],
+      date: ''
     });
 
     this.commentForm.valueChanges.subscribe(data => this.onValueChanged(data));
@@ -127,12 +128,12 @@ export class DishdetailComponent implements OnInit {
 
 onSubmit(){
   this.comment = this.commentForm.value;
-  var d = new Date();
-  console.log(this.commentForm.value);
-  this.dish.comments.push(this.commentForm.value);
+  this.commentForm.value.date = new Date().toISOString();
+  this.dish.comments.push(this.comment);
   this.commentForm.reset({
     author: '',
-    comment: ''
+    comment: '',
+    rating: '5'
   });
 }
   

@@ -26,77 +26,66 @@ fxLayoutGap="10px" fxLayoutGap.xs="0">
 
   <div fxFlex="40" >
     <md-list *ngIf="dish">
-  <h3>Comments</h3>
+      <h3>Comments</h3>
 
-  
+      <md-list-item *ngFor="let comment of dish.comments">
+        <p mdLine>{{comment.comment}}</p>
+        <p mdLine>{{comment.rating}} Stars</p>
+        <p mdLine><span>--{{comment.author}} {{ comment.date | date }}</span></p>
+      </md-list-item>
 
-
-  
-    <md-list-item *ngFor="let comment of dish.comments">
-      <p mdLine>{{comment.comment}}</p>
-      <p mdLine>{{comment.rating}} Stars</p>
-      <p mdLine><span>--{{comment.author}} {{ comment.date | date }}</span></p>
-    </md-list-item>
-
-    <md-list-item *ngIf="commentForm.value.author && commentForm.value.comment">
-      <p mdLine>{{commentForm.value.comment}}</p>
-      <p mdLine>{{commentForm.value.rating}} Stars</p>
-      <p mdLine><span>--{{commentForm.value.author}}{{d}} </span></p>
-    </md-list-item>
+      <md-list-item *ngIf="commentForm.status=='VALID'">
+        <p mdLine>{{commentForm.value.comment}}</p>
+        <p mdLine>{{commentForm.value.rating}} Stars</p>
+        <p mdLine><span>--{{commentForm.value.author}} {{commentForm.value.date}} </span></p>
+      </md-list-item>
 
   </md-list>
-
-
-
-
-
-</div>
-<div [hidden]="dish">
-  <md-spinner></md-spinner><h4>Loading ... Please wait</h4>
 </div>
 
-<div fxFlex fxFlexOffset="20px" class="full-width">
+<div fxFlex fxFlexOffset="20px" class="form-size" *ngIf="dish">
  
- <p>{{ commentForm.value | json }} {{commentForm.status | json  }}</p>
- <form novalidate [formGroup]="commentForm" (ngSubmit)="onSubmit()">
+
+ <form novalidate [formGroup]="commentForm" (ngSubmit)="onSubmit()" >
      <p>
-       <md-input-container class="half-width"
+       <md-input-container class="full-width"
         dividerColor="{{ formErrors.author ? 'warn' : 'primary'}}">
          <input mdInput formControlName="author" placeholder="Name" type="text" required>
          <md-hint>
-           <span [hidden]="!(commentForm.get('author').hasError('required') && commentForm.get('author').touched)">
-             Name is required</span>
+           <span [hidden]="!(formErrors.author)">
+              {{formErrors.author}}</span>
          </md-hint>
        </md-input-container>
      </p>
      <p>
-
-   
-      <md-slider
-      class="example-margin"
-      [disabled]="disabled"
-      [invert]="invert"
-      [max]="5"
-      [min]="min"
-      [step]="1"
-      [thumb-label]="thumbLabel"
-      [tick-interval]="tickInterval"
-      [value]="5"
-      [vertical]="vertical" formControlName="rating"  ></md-slider>
-     
+        <md-slider
+        class="example-margin"
+        [invert]="invert"
+        [max]="5"
+        [min]="min"
+        [step]="1"
+        [thumb-label]="thumbLabel"
+        [tick-interval]="tickInterval"
+        [value]="5"
+        [vertical]="vertical" formControlName="rating"  >
+        </md-slider>
      </p>
      <p>
        <md-input-container class="full-width" dividerColor="{{ formErrors.comment ? 'warn' : 'primary'}}">
          <textarea mdInput formControlName="comment" placeholder="Your Comment" rows=12></textarea>
        </md-input-container>
        <md-hint>
-        <span [hidden]="!(commentForm.get('comment').hasError('required') && commentForm.get('comment').touched)">
-          Comment is required</span>
+        <span [hidden]="!(formErrors.comment)">
+            {{formErrors.comment}}
+        </span>
       </md-hint>
      </p>
      <button type="submit" md-button class="background-primary text-floral-white" [disabled]="commentForm.invalid">Submit</button>
-   </form>
+  </form>
+  
 </div>
-
+<div [hidden]="dish">
+    <md-spinner></md-spinner><h4>Loading ... Please wait</h4>
+  </div>
 
 </div>
