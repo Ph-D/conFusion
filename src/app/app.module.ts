@@ -11,7 +11,6 @@ import {MatSelectModule} from '@angular/material';
 import {MatCheckboxModule} from '@angular/material';
 import {MatProgressSpinnerModule} from '@angular/material';
 
-
 import {
   MdButtonModule,
   MdMenuModule,
@@ -42,7 +41,9 @@ import {MdInputModule} from '@angular/material';
 import { FormsModule, ReactiveFormsModule, } from '@angular/forms';
 import {MatSlideToggleModule} from '@angular/material';
 import {MatSliderModule} from '@angular/material';
-
+import { HttpModule } from '@angular/http';
+import { baseURL } from './shared/baseurl';
+import { ProcessHTTPMsgService } from './services/process-httpmsg.service'
 
 @NgModule({
   declarations: [
@@ -77,10 +78,16 @@ import {MatSliderModule} from '@angular/material';
     MatSlideToggleModule,
     MatSliderModule,
     MatSelectModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    HttpModule
     
   ],
-  providers: [ DishService, PromotionService, LeaderService ],
+  providers: [ 
+    DishService, 
+    PromotionService, 
+    LeaderService, 
+    { provide : 'BaseURL', useValue: baseURL }, 
+    ProcessHTTPMsgService ],
   entryComponents: [
     LoginComponent
   ],
