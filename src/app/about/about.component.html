@@ -61,8 +61,8 @@ fxLayoutGap="10px"
      <md-list *ngIf="leaders">
       <h3>Comments</h3>
       
-        <md-list-item *ngFor="let leader of leaders" >
-          <img md-list-avatar src="{{leader.image}}" alt={{leader.name}} >
+        <md-list-item *ngFor="let leader of leaders" [@expand]>
+          <img md-list-avatar src="{{ BaseURL + leader.image}}" alt={{leader.name}} >
           <p mdLine>{{leader.name}}</p>
           <p mdLine>{{leader.designation}}</p>
           <p mdLine>{{leader.description}}</p>
