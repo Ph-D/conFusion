@@ -44,6 +44,8 @@ import {MatSliderModule} from '@angular/material';
 import { HttpModule } from '@angular/http';
 import { baseURL } from './shared/baseurl';
 import { ProcessHTTPMsgService } from './services/process-httpmsg.service'
+import { RestangularModule, Restangular } from 'ngx-restangular';
+import { RestangularConfigFactory } from './shared/restConfig'; 
 
 @NgModule({
   declarations: [
@@ -79,7 +81,8 @@ import { ProcessHTTPMsgService } from './services/process-httpmsg.service'
     MatSliderModule,
     MatSelectModule,
     MatProgressSpinnerModule,
-    HttpModule
+    HttpModule,
+    RestangularModule.forRoot(RestangularConfigFactory)
     
   ],
   providers: [ 
