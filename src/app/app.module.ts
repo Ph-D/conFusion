@@ -35,11 +35,13 @@ import { PromotionService } from './services/promotion.service';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { LoginComponent } from './login/login.component';
 import { LeaderService } from './services/leader.service';
+
+
 import {MdFormFieldModule} from '@angular/material';
 import {MdInputModule} from '@angular/material';
-
-import { FormsModule, ReactiveFormsModule, } from '@angular/forms';
 import {MatSlideToggleModule} from '@angular/material';
+import { FormsModule, ReactiveFormsModule, } from '@angular/forms';
+
 import {MatSliderModule} from '@angular/material';
 import { HttpModule } from '@angular/http';
 import { baseURL } from './shared/baseurl';
