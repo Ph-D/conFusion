@@ -1,25 +1,34 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import {MatListModule} from '@angular/material';
+
+
+
+
+// import {MatCheckboxModule} from '@angular/material';
+// import {MatProgressSpinnerModule} from '@angular/material';
+// import {
+//   MdButtonModule,
+//   MdMenuModule,
+//   MdToolbarModule,
+//   MdIconModule,
+//   MdCardModule,
+//   MdListModule,
+// } from '@angular/material';
+// import {MatListModule} from '@angular/material';
+// import {MatGridListModule} from '@angular/material';
+// import { MdDialogModule } from '@angular/material';
+// import {MatSelectModule} from '@angular/material';
+// import {MdFormFieldModule} from '@angular/material';
+// import {MdInputModule} from '@angular/material';
+// import {MatSlideToggleModule} from '@angular/material';
+// import {MatSliderModule} from '@angular/material';
+
+import { MyMaterialModule } from './MyMaterialModule';
+
+
+
 import { FlexLayoutModule } from '@angular/flex-layout';
-import {MatGridListModule} from '@angular/material';
-import { MdDialogModule } from '@angular/material';
-import {MatSelectModule} from '@angular/material';
-
-
-import {MatCheckboxModule} from '@angular/material';
-import {MatProgressSpinnerModule} from '@angular/material';
-
-import {
-  MdButtonModule,
-  MdMenuModule,
-  MdToolbarModule,
-  MdIconModule,
-  MdCardModule,
-  MdListModule,
-} from '@angular/material';
-
 
 import 'hammerjs';
 import { AppComponent } from './app.component';
@@ -37,12 +46,10 @@ import { LoginComponent } from './login/login.component';
 import { LeaderService } from './services/leader.service';
 
 
-import {MdFormFieldModule} from '@angular/material';
-import {MdInputModule} from '@angular/material';
-import {MatSlideToggleModule} from '@angular/material';
+
 import { FormsModule, ReactiveFormsModule, } from '@angular/forms';
 
-import {MatSliderModule} from '@angular/material';
+
 import { HttpModule } from '@angular/http';
 import { baseURL } from './shared/baseurl';
 import { ProcessHTTPMsgService } from './services/process-httpmsg.service'
@@ -66,25 +73,26 @@ import { HighlightDirective } from './directives/highlight.directive';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MdToolbarModule,
-    MatListModule,
-    MatGridListModule,
-    MatCheckboxModule,
-    FlexLayoutModule,
-    MdDialogModule,
-    MdButtonModule,
     FormsModule,
-    MdInputModule,
     ReactiveFormsModule,
-    MdMenuModule,
-    MdListModule,
-    MdIconModule,
-    MdCardModule,
+    MyMaterialModule,
+    // MdMenuModule,
+    // MdListModule,
+    // MdIconModule,
+    // MdCardModule,
+    // MatSlideToggleModule,
+    // MatSliderModule,
+    // MatSelectModule,
+    // MatProgressSpinnerModule,
+    // MdInputModule,
+    // MdToolbarModule,
+    // MatListModule,
+    // MatGridListModule,
+    // MatCheckboxModule,
+    FlexLayoutModule,
+    // MdDialogModule,
+    // MdButtonModule,
     AppRoutingModule,
-    MatSlideToggleModule,
-    MatSliderModule,
-    MatSelectModule,
-    MatProgressSpinnerModule,
     HttpModule,
     RestangularModule.forRoot(RestangularConfigFactory)
     
