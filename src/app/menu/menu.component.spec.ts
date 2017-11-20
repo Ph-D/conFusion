@@ -3,7 +3,12 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MenuComponent } from './menu.component';
 
+import { By } from '@angular/platform-browser';
+import { DebugElement } from '@angular/core';
+
+//import { MaterialModule } from '@angular/material';
 import { MyMaterialModule } from '../MyMaterialModule';
+
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { Dish } from '../shared/dish';
 import { DishService } from '../services/dish.service';
@@ -24,6 +29,7 @@ describe('MenuComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
+        MyMaterialModule,
         BrowserAnimationsModule,
         FlexLayoutModule,
         RouterTestingModule.withRoutes(
@@ -50,4 +56,22 @@ describe('MenuComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('dishes items should be 4', () => {
+    expect(component.dishes.length).toBe(4);
+    expect(component.dishes[1].name).toBe('Zuchhipakoda');
+    expect(component.dishes[3].featured).toBeFalsy();
+  });
+
+  it('should use dishes in the templates', () => {
+    fixture.detectChanges();
+
+    let de: DebugElement;
+    let el: HTMLElement;
+    de = fixture.debugElement.query(By.css('h1'));
+    el = de.nativeElement;
+
+    expect(el.textContent).toContain(DISHES[0].name.toUpperCase());
+  });
+  
 });
