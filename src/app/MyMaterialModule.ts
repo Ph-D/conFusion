@@ -15,7 +15,10 @@ import {
     MatSliderModule,
     MatSlideToggleModule,
     MdInputModule,
-    MdFormFieldModule
+    MdFormFieldModule,
+    MatGridListModule,
+    MatListModule
+
     
 } from "@angular/material";
 
@@ -33,7 +36,10 @@ const MAT_MODULES  = [
     MatSliderModule,
     MatSlideToggleModule,
     MdInputModule,
-    MdFormFieldModule
+    MdFormFieldModule,
+    MatGridListModule,
+    MatListModule
+
 ];
 
 @NgModule({
