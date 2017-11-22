@@ -43,7 +43,6 @@ fxLayoutGap="10px" fxLayoutGap.xs="0">
   </md-list>
 </div>
 
-<div fxFlex fxFlexOffset="20px" class="form-size" *ngIf="dish">
  
 
  <form novalidate [formGroup]="commentForm" (ngSubmit)="onSubmit()" >
@@ -82,8 +81,7 @@ fxLayoutGap="10px" fxLayoutGap.xs="0">
      </p>
      <button type="submit" md-button class="background-primary text-floral-white" [disabled]="commentForm.invalid">Submit</button>
   </form>
-  
-</div>
+
 <div [hidden]="dish || errMess">
     <md-spinner></md-spinner><h4>Loading ... Please wait</h4>
   </div>

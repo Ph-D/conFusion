@@ -59,7 +59,7 @@ describe('MenuComponent', () => {
 
   it('dishes items should be 4', () => {
     expect(component.dishes.length).toBe(4);
-    expect(component.dishes[1].name).toBe('Zuchhipakoda');
+    expect(component.dishes[1].name).toBe('Zucchipakoda');
     expect(component.dishes[3].featured).toBeFalsy();
   });
 
