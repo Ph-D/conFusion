@@ -24,6 +24,7 @@ describe('MenuComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
+        MyMaterialModule,
         BrowserAnimationsModule,
         FlexLayoutModule,
         RouterTestingModule.withRoutes(
