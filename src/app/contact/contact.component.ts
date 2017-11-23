@@ -14,7 +14,8 @@ import { visibility, flyInOut, expand } from '../animations/app.animation';
     'style': 'display: block;'
   },
   animations: [
-    flyInOut()
+    flyInOut(),
+    expand()
   ]
 })
 export class ContactComponent implements OnInit {
@@ -29,10 +30,10 @@ export class ContactComponent implements OnInit {
     'email' : ''
   };
 
-  formSubmit = null;
-  showForm = true;
+  formSubmit;
+  formDisplay = true;
 
-  visibility = 'shown';
+ 
   validationMessages = {
     'firstname' : {
       'required' : 'First Name is required.',
@@ -55,11 +56,11 @@ export class ContactComponent implements OnInit {
   };
 
   constructor( private feedbackservice: FeedbackService,private fb: FormBuilder) { 
-    this.createForm();
+    
   }
 
   ngOnInit() {
-
+    this.createForm();
   }
 
   createForm(){
@@ -75,7 +76,7 @@ export class ContactComponent implements OnInit {
 
     this.feedbackForm.valueChanges.subscribe( data => this.onValueChanged(data));
 
-    this.onValueChanged(); // reset form validation messages
+    this.onValueChanged(); 
   }
 
   onValueChanged(data?: any){
@@ -103,10 +104,14 @@ export class ContactComponent implements OnInit {
 
 onSubmit(){
   this.feedback = this.feedbackForm.value;
-  this.feedbackservice.submitFeedBack(this.feedback).
-  subscribe(feedback => { this.formSubmit = feedback; this.showForm = null; setTimeout(() => { this.formSubmit = null; this.showForm = true;}, 5000)});
+  this.formDisplay = false;
+  this.feedbackservice.submitFeedBack(this.feedback)
+  .subscribe(feedback => {
+    this.formSubmit = this.feedback;
+    setTimeout(() => { this.formSubmit = null; this.formDisplay = true; }, 5000); 
+   }),
  
-  this.visibility
+ 
   this.feedbackForm.reset({
     firstname: '',
     lastname:'',

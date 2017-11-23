@@ -38,7 +38,7 @@ fxLayoutGap="10px">
  <div fxFlex fxFlexOffset="20px" class="form-size">
    <h3>Send us your Feedback</h3>
   <p>{{ feedbackForm.value | json }} {{ feedbackForm.status | json  }}</p>
-  <form novalidate [formGroup]="feedbackForm" (ngSubmit)="onSubmit()" [@visibility]="visibility" *ngIf="formSubmit" [@expand]>
+  <form novalidate [formGroup]="feedbackForm" (ngSubmit)="onSubmit()"   *ngIf="formDisplay" [@expand]>
       <p>
         <md-input-container class="half-width"
          dividerColor="{{(formErrors.firstname) ? 'warn' : 'primary'}}">
@@ -96,26 +96,22 @@ fxLayoutGap="10px">
     </form>
  
  
- 
- 
- 
- 
-    <div [hidden]="formSubmit || submitted" [@expand]>
+  <div [hidden]="formDisplay || formSubmit" [@expand]>
       <md-spinner></md-spinner><h4>Loading ... Please wait</h4>
     </div>
  
- 
-    <div *ngIf="submitted" [@expand]>
+    <div *ngIf="formSubmit" [@expand]>
       <h3>Your Submission</h3>
-        <p>First Name: {{submitted.firstname}}</p>
-        <p>Last Name: {{submitted.lastname}}</p>
-        <p>Tel. Number: {{submitted.telnum}}</p>
-        <p>Email: {{submitted.email}}</p>
-        <p>Contact You?: {{submitted.agree}}</p>
-        <p>How?: {{submitted.contacttype}}</p>
-        <p>Feedback: {{submitted.message}}</p>
+
+        <p>First Name: {{formSubmit.firstname}}</p>
+        <p>Last Name: {{formSubmit.lastname}}</p>
+        <p>Tel Num: {{formSubmit.telnum}}</p>
+        <p>Email: {{formSubmit.email}}</p>
+        <p>Contact: {{formSubmit.agree}}</p>
+        <p>How: {{formSubmit.contacttype}}</p>
+        <p>Feedback: {{formSubmit.message}}</p>
+
     </div>
- 
  
  
   </div>
