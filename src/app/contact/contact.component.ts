@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Feedback, ContactType } from '../shared/feedback';
-import {flyInOut } from '../animations/app.animation';
-
+import { FeedbackService } from '../services/feedback.service';
+import { visibility, flyInOut, expand } from '../animations/app.animation';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
+  providers: [FeedbackService],
   styleUrls: ['./contact.component.scss'],
   host: {
     '[@flyInOut]': 'true',
@@ -17,7 +18,7 @@ import {flyInOut } from '../animations/app.animation';
   ]
 })
 export class ContactComponent implements OnInit {
-
+  feedbackcopy = null;
   feedbackForm : FormGroup;
   feedback: Feedback;
   contactType = ContactType;
@@ -28,6 +29,10 @@ export class ContactComponent implements OnInit {
     'email' : ''
   };
 
+  formSubmit = null;
+  showForm = true;
+
+  visibility = 'shown';
   validationMessages = {
     'firstname' : {
       'required' : 'First Name is required.',
@@ -49,11 +54,12 @@ export class ContactComponent implements OnInit {
     }
   };
 
-  constructor( private fb: FormBuilder) { 
+  constructor( private feedbackservice: FeedbackService,private fb: FormBuilder) { 
     this.createForm();
   }
 
   ngOnInit() {
+
   }
 
   createForm(){
@@ -67,7 +73,7 @@ export class ContactComponent implements OnInit {
       message: '',
     });
 
-    this.feedbackForm.valueChanges.subscribe(data => this.onValueChanged(data));
+    this.feedbackForm.valueChanges.subscribe( data => this.onValueChanged(data));
 
     this.onValueChanged(); // reset form validation messages
   }
@@ -90,9 +96,17 @@ export class ContactComponent implements OnInit {
     }
   }
 
+
+
+
+
+
 onSubmit(){
   this.feedback = this.feedbackForm.value;
-  console.log(this.feedback);
+  this.feedbackservice.submitFeedBack(this.feedback).
+  subscribe(feedback => { this.formSubmit = feedback; this.showForm = null; setTimeout(() => { this.formSubmit = null; this.showForm = true;}, 5000)});
+ 
+  this.visibility
   this.feedbackForm.reset({
     firstname: '',
     lastname:'',
@@ -104,5 +118,9 @@ onSubmit(){
   
   });
 }
+
+
+
+
 
 }
